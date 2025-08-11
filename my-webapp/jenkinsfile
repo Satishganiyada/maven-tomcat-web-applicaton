@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven-3.9.6' // Name from Jenkins Global Tool Configuration
-        jdk 'Java-21'       // Name from Jenkins Global Tool Configuration
+        maven 'Maven-3.9.6'
+        jdk 'Java-21'
     }
 
     stages {
@@ -13,32 +13,38 @@ pipeline {
             }
         }
 
-            stage('Build with Maven') {
-                steps {
-                    dir('my-webapp') {  // Go into the folder containing pom.xml
-                sh 'mvn clean install'
+        stage('Build with Maven') {
+            steps {
+                dir('my-webapp') {
+                    sh 'mvn clean install'
                 }
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'mvn test'
+                dir('my-webapp') {
+                    sh 'mvn test'
+                }
             }
         }
 
         stage('Package Application') {
             steps {
-                sh 'mvn package'
+                dir('my-webapp') {
+                    sh 'mvn package'
+                }
             }
         }
 
         stage('Deploy') {
             steps {
-                sh '''
-                    scp -o StrictHostKeyChecking=no target/*.jar ubuntu@51.20.32.84:/opt/apps/
-                    ssh ubuntu@51.20.32.84 'sudo systemctl restart myapp.service'
-                '''
+                dir('my-webapp') {
+                    sh '''
+                        scp -o StrictHostKeyChecking=no target/*.war ubuntu@51.20.32.84:/opt/apps/
+                        ssh ubuntu@51.20.32.84 'sudo systemctl restart myapp.service'
+                    '''
+                }
             }
         }
     }
