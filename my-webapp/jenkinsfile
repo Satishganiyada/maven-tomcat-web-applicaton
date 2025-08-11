@@ -15,7 +15,8 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                sh 'mvn clean install'
+                dir('my-webapp') {  // Go into the folder containing pom.xml
+            sh 'mvn clean install'
             }
         }
 
