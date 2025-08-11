@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/YourUsername/your-maven-app.git'
+                git branch: 'main', url: 'git@github.com:Satishganiyada/maven-tomcat-web-applicaton.git'
             }
         }
 
@@ -35,8 +35,8 @@ pipeline {
             steps {
                 // Example: Copy JAR/WAR to deployment server
                 sh '''
-                    scp -o StrictHostKeyChecking=no target/*.jar ubuntu@<DEPLOY_SERVER_IP>:/opt/apps/
-                    ssh ubuntu@<DEPLOY_SERVER_IP> 'sudo systemctl restart myapp.service'
+                    scp -o StrictHostKeyChecking=no target/*.jar ubuntu@51.20.32.84:/opt/apps/
+                    ssh ubuntu@51.20.32.84 'sudo systemctl restart myapp.service'
                 '''
             }
         }
