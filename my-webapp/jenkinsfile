@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven-3.9.6' // Name from Jenkins Global Tool Configuration
+        jdk 'Java-21'       // Name from Jenkins Global Tool Configuration
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/YourUsername/your-maven-app.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Package Application') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Example: Copy JAR/WAR to deployment server
+                sh '''
+                    scp -o StrictHostKeyChecking=no target/*.jar ubuntu@<DEPLOY_SERVER_IP>:/opt/apps/
+                    ssh ubuntu@<DEPLOY_SERVER_IP> 'sudo systemctl restart myapp.service'
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Build and deployment successful!'
+        }
+        failure {
+            echo '❌ Build or deployment failed.'
+        }
+    }
+}
