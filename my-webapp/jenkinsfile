@@ -13,10 +13,11 @@ pipeline {
             }
         }
 
-        stage('Build with Maven') {
-            steps {
-                dir('my-webapp') {  // Go into the folder containing pom.xml
-            sh 'mvn clean install'
+            stage('Build with Maven') {
+                steps {
+                    dir('my-webapp') {  // Go into the folder containing pom.xml
+                sh 'mvn clean install'
+                }
             }
         }
 
