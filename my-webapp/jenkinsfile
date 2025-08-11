@@ -42,7 +42,7 @@ pipeline {
                 dir('my-webapp') {
                     sh '''
                         scp -o StrictHostKeyChecking=no target/*.war ubuntu@51.20.32.84:/opt/apps/
-                        ssh ubuntu@51.20.32.84 'sudo systemctl restart myapp.service'
+                        ssh ubuntu@56.228.31.205 'sudo systemctl restart myapp.service'
                     '''
                 }
             }
