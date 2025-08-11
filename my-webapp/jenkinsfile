@@ -34,7 +34,6 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Example: Copy JAR/WAR to deployment server
                 sh '''
                     scp -o StrictHostKeyChecking=no target/*.jar ubuntu@51.20.32.84:/opt/apps/
                     ssh ubuntu@51.20.32.84 'sudo systemctl restart myapp.service'
