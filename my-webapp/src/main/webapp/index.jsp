@@ -34,6 +34,13 @@
 
     <footer>
         <p>© 2025 Sweet Bakery. All rights reserved.</p>
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
+
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
