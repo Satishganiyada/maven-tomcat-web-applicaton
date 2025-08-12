@@ -13,6 +13,10 @@
     <section class="products">
         <div class="product">
             <img src="images/bread.jpg" alt="Bread">
+            <img src="images/bread.jpg" alt="Bread">
+            <img src="images/bread.jpg" alt="Bread">
+            <h3>Fresh Bread</h3>
+            <h3>Fresh Bread</h3>
             <h3>Fresh Bread</h3>
             <p>$2.50</p>
         </div>
