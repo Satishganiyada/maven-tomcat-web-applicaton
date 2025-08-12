@@ -1,11 +1,32 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to My Web App</title>
+    <title>Sweet Bakery</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Hello from Maven + Jetty!</h1>
-    <p>If you see this, your Java web app is running correctly.</p>
+    <header>
+        <h1>Sweet Bakery</h1>
+        <p>Freshly baked bread, cakes, and cookies!</p>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="images/bread.jpg" alt="Bread">
+            <h3>Fresh Bread</h3>
+            <p>$2.50</p>
+        </div>
+        <div class="product">
+            <img src="images/bread.jpg" alt="Cake">
+            <h3>Chocolate Cake</h3>
+            <p>$15.00</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sweet Bakery. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
-
