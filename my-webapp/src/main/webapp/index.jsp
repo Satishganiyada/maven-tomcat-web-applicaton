@@ -23,6 +23,11 @@
         <div class="product">
             <img src="images/bread.jpg" alt="Cake">
             <h3>Chocolate Cake</h3>
+            <h3>Chocolate Cake</h3>
+            <h3>Chocolate Cake</h3>
+
+            <h3>Chocolate Cake</h3>
+            <h3>Chocolate Cake</h3>
             <p>$15.00</p>
         </div>
     </section>
